@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <!--Container-->
+    <div class="container">
+        <!--Header-->
+        <h2>PAN Card Validation</h2>
+        <form id="panCardForm" name="form">
+            <label for="pan">PAN Card Number:</label>
+            <input type="text" id="pancardnum" name="pancard" required placeholder="AETPU9417"><br>
+            <hr>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <!--Script Starts-->
+    <script>
+        document.getElementById('panCardForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const pan = document.getElementById('pancardnum').value.toUpperCase();
+            const panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+
+            if (panPattern.test(pan)) {
+                alert("PAN card number is valid")
+            } else {
+                alert("PAN card number is invalid, Please Enter a valid number")
+            }
+        });
+    </script>
+    <!--Script Ends-->
+</body>
+
+</html>
